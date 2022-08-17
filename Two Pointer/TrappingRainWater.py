@@ -26,6 +26,6 @@ class Solution:
                 else:
                     res += (rightmax - height[r])
                     
-                r-=1
+                r -= 1
                     
         return res
