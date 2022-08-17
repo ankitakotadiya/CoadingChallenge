@@ -23,7 +23,7 @@ class Solution:
             else:
                 
                 nums[r] = nums[r] * nums[r]
-                r-=1
+                r -= 1
                 
                 if l == r:
                     nums[l] = nums[l] * nums[l]
