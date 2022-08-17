@@ -11,4 +11,4 @@ class Solution:
                     
                     nums[i],nums[p] = nums[p],nums[i]
             
-                p+=1
+                p += 1
