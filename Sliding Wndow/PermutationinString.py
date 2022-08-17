@@ -21,5 +21,5 @@ class Solution:
                 else:
                     s2_d[s2[l]] -= 1
                 
-                l+=1
+                l += 1
         return False
