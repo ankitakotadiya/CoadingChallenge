@@ -10,7 +10,6 @@ class Solution:
         for i in range(len(s)):
             
             if s[i] in charset:
-                
                 indx = charset.index(s[i])
                 charset = list(charset[indx+1:len(charset)])
                 charset.append(s[i])
