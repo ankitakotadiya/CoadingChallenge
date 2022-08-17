@@ -1,14 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         
+        fdic = {}
         for i,data in enumerate(nums):
             
             b = target - data
             
-            if b in nums:
+            if data in dic:
                 
-                j = nums.index(b)
-                
-                if i == j:
-                    continue
-                return [i,j]
+                return [dic[data],i]
+            dic[b] = i
