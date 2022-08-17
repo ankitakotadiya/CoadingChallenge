@@ -3,7 +3,7 @@ class Solution:
         
         start = 0
         end = 0
-        minlength = 1000001
+        minlength = float('inf')
         sumval = 0
         
         while end <= len(nums):
@@ -23,7 +23,7 @@ class Solution:
                 print(sumval)
                 start+=1
         
-        if minlength == 1000001:
+        if minlength == float('inf') :
             return 0
         
         return minlength
