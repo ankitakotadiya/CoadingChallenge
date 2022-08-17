@@ -20,7 +20,7 @@ class Solution:
       else:
         map[s[start]] -= 1
         
-      start+=1
+      start += 1
 
     longest = max(longest,end-start+1)
 
