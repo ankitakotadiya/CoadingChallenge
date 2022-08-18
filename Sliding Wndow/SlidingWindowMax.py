@@ -20,6 +20,6 @@ class Solution:
                 result.append(nums[q[0]])
                 left+=1
             
-            right+=1
+            right += 1
             
         return result
