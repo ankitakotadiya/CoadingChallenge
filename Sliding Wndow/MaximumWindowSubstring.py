@@ -1,3 +1,17 @@
+'''
+# First create a hash map that store character as key and frequency of character as value of substring.
+# Now run the loop for second main string and store occerence of charactes in hash map. Increase the count if character match with substring.
+# Once you reach count equal to the length of substring that means you have found window. 
+# If such a window found then try to minimise the window by deleting character from the start of current window.
+# If character at start in the current window already in substring then decrease count and again add new character in the window.
+# Update minimum window size in the result.
+# At the end return characters in the minimum window size.
+
+Time Complexity: O(N)
+Space Complexity: O(1)
+'''
+
+
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         
