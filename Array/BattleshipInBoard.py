@@ -1,5 +1,5 @@
 '''
-# Run through loop and iterate element placed in a cell.
+# Run through loop of rows and column and iterate element placed in a cell.
 # If element equal to the 'X' which represent the battleship then simply check it's adjacent element if found any battleship then simply continue to next element otherwise increase the count by one.
 # At the end return number of battleship in the board.
 
