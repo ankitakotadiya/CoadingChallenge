@@ -15,7 +15,7 @@ Output: 2
 # If not then save prevsum against count 1 if not exists else increase count for current presum.
 
 Time Complexity: O(n)
-Space Complexity: O(1)
+Space Complexity: O(n)
 '''
 
 class Solution:
