@@ -26,6 +26,25 @@ class TreeNode:
         self.right = None
 
 class Solution:
+    
+    # If tree is binary tree
+    def findLCA(root, n1, n2):
+     
+    # Base Case
+        if root is None:
+            return None
+
+        if root.val == n1 or root.val == n2:
+            return root
+
+        left_lca = findLCA(root.left, n1, n2)
+        right_lca = findLCA(root.right, n1, n2)
+
+        if left_lca and right_lca:
+            return root
+
+        return left_lca if left_lca is not None else right_lca
+
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         
         if not root or not p or not q:
