@@ -6,7 +6,7 @@ Output: true
 '''
 
 '''
-# The idea is to recursive solution.
+# The idea is DFS.
 # Traverse both tree simultaneoulsly.
 # Recursively traverse left and right node, when you reach left node and right node are node None, this is our leaf node, save in array.
 # Follow same process for the another tree.
