@@ -21,7 +21,30 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 '''
 
+# Another Solution
+'''
+# In BST left child value always less than it's parent and right child always greater than parent.
+# Initially will set lower = -inf and upper  = inf
+# recuresively traverse and left and right children.
+# While traversing left child will set upper = current and for right will update lower = current node.
+# If condition matched like current node less than lower and upper > current node then will continue traversing else return False because tree is not valid.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+'''
+
 class Solution:
+    
+    def helper(self,node, lower, upper):
+            
+        if not node:
+            return True
+
+        if lower < node.val < upper:
+            return self.helper(node.left, lower, node.val) and self.helper(node.right, node.val, upper)
+
+        else:
+            return False
     
     def inorder(self,root,output):
         
