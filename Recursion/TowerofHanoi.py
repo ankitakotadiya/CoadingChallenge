@@ -16,9 +16,10 @@ class Solution:
   result = []
   def hanoi(self,n,source,dest,aux):
     
-    self.hanoi(source,aux,dest)
-    self.result.append((source,dest))
-    self.hanoi(aux,dest,source)
+    if n>0:
+      self.hanoi(source,aux,dest)
+      self.result.append((source,dest))
+      self.hanoi(aux,dest,source)
     
   
 obj = Solution()
