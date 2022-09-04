@@ -10,22 +10,22 @@ Time Complexity: O(n*n!)
 Space Complexity:O(n)
 '''
 
-def permutations(A):
-  
-  def possible_permutations(i):
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        
+        def possible_permutations(i,result=[]):
     
-    if i == len(A) - 1:
-      result.append(A.copy())
-      return
-    
-    for j in range(i,len(A)):
-      
-      A[i],A[j] = A[j],A[i]
-      
-      possible_permutations(i+1)
-      
-      A[i],A[j] = A[j],A[i]
-      
-  result = []
-  possible_permutations(0)
-  return result
+            if i == len(nums) - 1:
+                result.append(nums.copy())
+                
+            
+            for j in range(i,len(nums)):
+                nums[i],nums[j] = nums[j],nums[i]
+                
+                possible_permutations(i+1)
+                
+                nums[i],nums[j] = nums[j],nums[i]
+                
+            return result
+                
+        return possible_permutations(0)
