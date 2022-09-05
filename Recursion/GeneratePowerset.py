@@ -29,6 +29,22 @@ def generate_power_set(input_set):
     
   power_set = []
   directed_power_set(0,[])
+  
+  
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        
+        def dfs(num,path,res=[]):
+            
+            res.append(path)
+            
+            for i in range(len(num)):
+                
+                dfs(num[i+1:],path+[num[i]])
+                
+            return res
+        
+        return dfs(nums,[])
     
     
 
