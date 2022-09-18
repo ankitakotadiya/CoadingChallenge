@@ -18,17 +18,14 @@ class Solution:
                     
     def dfs(self,i,j,grid):
         
+        
+        # print(grid)
+        
+        if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]) or grid[i][j] != '1':
+            return
+        
         grid[i][j] = 'X'
-        print(grid)
-        
-        if i-1 >= 0 and grid[i-1][j] == '1':
-            self.dfs(i-1,j,grid)
-        
-        if j-1 >= 0 and grid[i][j-1] == '1':
-            self.dfs(i,j-1,grid)
-            
-        if i+1 < len(grid) and grid[i+1][j] == '1':
-            self.dfs(i+1,j,grid)
-            
-        if j+1 < len(grid[0]) and grid[i][j+1] == '1':
-            self.dfs(i,j+1,grid)
+        self.dfs(i-1,j,grid)
+        self.dfs(i,j-1,grid)
+        self.dfs(i+1,j,grid)
+        self.dfs(i,j+1,grid)
