@@ -1,34 +1,45 @@
+'''
+You are given a list of airline tickets where tickets[i] = [fromi, toi] represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.
+
+All of the tickets belong to a man who departs from "JFK", thus, the itinerary must begin with "JFK". If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string.
+
+For example, the itinerary ["JFK", "LGA"] has a smaller lexical order than ["JFK", "LGB"].
+
+Input: tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
+Output: ["JFK","MUC","LHR","SFO","SJC"]
+'''
+
+'''
+'''
+
 class Solution:
 
   def reconstruct_intinarary(self,tickets):
 
     graph = {}
-    for s, d in tickets:
-      if d not in graph:
-          graph[d] = []
+
+    for s,d in tickets:
       if s in graph:
-          graph[s].append(d)
-          graph[s].sort()
-          continue
-      graph[s] = [d]
+        graph[s].append(d)
+      else:
+        graph[s] = [d]
 
-    print(graph)
-    def findPath(source, graph, visited, totalLen):
-      if len(visited) == totalLen:
-          return True, [source]
-      choices = graph[source]
-      for i in choices:
-          if visited.count((source, i)) == choices.count(i):
-              continue
-          visited.append((source, i))
-          flag, li = findPath(i, graph, visited, totalLen)
-          print(li)
-          if flag:
-              return True, [source] + li
-          visited.pop()
-      return False, []
-    flag, itinerary = findPath("JFK", graph, [], len(tickets))
-    return itinerary
+    for src in graph.keys():
+      graph[src].sort(reverse=True)
 
-obj = Solution()
-print(obj.reconstruct_intinarary([["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]))
+    stack = []
+    res = []
+
+    stack.append('JFK')
+
+    while stack:
+
+      ele = stack[-1]
+
+      if ele in graph and len(graph[ele]) > 0:
+        stack.append(graph[ele].pop())
+
+      else:
+        res.append(stack.pop())
+
+    return res[::-1]
