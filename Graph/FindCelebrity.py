@@ -1,29 +1,13 @@
-def find_celebrity(n):
+'''
+In a party of N people, only one person is known to everyone. Such a person may be present in the party, if yes, (s)he doesn’t know anyone in the party. We can only ask questions like “does A know B? “. Find the stranger (celebrity) in the minimum number of questions.
 
-  matrix = [[0, 0, 1, 0],
+Input Matrix:
+
+matrix = [[0, 0, 1, 0],
            [0, 0, 1, 0],
            [0, 0, 0, 0],
            [0, 0, 1, 0]]
-
-  indegree = [0 for i in range(n)]
-  outdegree = [0 for i in range(n)]
-
-  for i in range(n):
-    for j in range(n):
-
-      x = matrix[i][j]
-      print('value of x is',x)
-      indegree[j] += x
-      outdegree[i] += x
-
-      print(indegree)
-      print(outdegree)
-  for i in range(n):
-
-    if indegree[i] == n-1 and outdegree[i] == 0:
-      return i
-
-  return -1
+'''
 
 def search_celebrity(n):
 
@@ -40,6 +24,35 @@ def search_celebrity(n):
 
   return candidate
     
+def find_celebrity(n,matrix):
+
+  stack = []
+
+  for i in range(n):
+    stack.append(i)
+
+  while len(stack) > 1:
+
+    A = stack.pop()
+    B = stack.pop()
+
+    if matrix[A][B]:
+      stack.append(B)
+
+    else:
+      stack.append(A)
+
+  cele = stack.pop()
+
+  for i in range(n):
+
+    if i != cele:
+
+      if matrix[i][cele] == 0 or matrix[cele][i] == 1:
+        return -1
+
+  return cele
+
 
 def knows(i,j):
   matrix = [[0, 0, 1, 0],
